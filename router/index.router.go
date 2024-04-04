@@ -2,6 +2,7 @@ package router
 
 import (
 	"bookstore-api/router/book_router"
+	"bookstore-api/router/user_router"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -16,4 +17,5 @@ func InitRoute(router *gin.Engine){
 	})
 
 	book_router.BookRouter(router)
+	user_router.UserRouter(router)
 }

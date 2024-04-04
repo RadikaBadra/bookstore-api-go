@@ -2,7 +2,7 @@ package controller
 
 import (
 	"bookstore-api/database"
-	models "bookstore-api/models/book_model"
+	models "bookstore-api/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

@@ -1,8 +1,10 @@
 package database
 
 import (
-	models "bookstore-api/models/book_model"
+	"bookstore-api/models"
+	"log"
 
+	"github.com/joho/godotenv"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -15,10 +17,18 @@ func ConnectDB() {
 		panic("failed to connect database")
 	}
 
-	err = database.AutoMigrate(&models.Book{})
+	err = database.AutoMigrate(&models.Book{}, &models.User{})
 	if err != nil {
 		return
 	}
 
 	DB = database
+}
+
+func LoadEnvVariables() {
+	err := godotenv.Load()
+
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 }
